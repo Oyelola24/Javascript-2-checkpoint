@@ -1,0 +1,34 @@
+// This algorithm defines a function to reverse a string
+
+ALGORITHM ReverseString
+
+// Declare global variables
+VAR
+    text, reversed : STRING
+    i : INTEGER
+
+// Function to reverse a given string
+FUNCTION reverse_string(word : STRING) : STRING
+VAR
+    rev : STRING
+    j : INTEGER
+BEGIN
+    rev = ""                                // Initialize reversed string
+
+    // Loop from end to start of the word
+    FOR j FROM .length(word) - 1 TO 0 STEP -1 DO
+        rev = rev + word[j]                 // Append each character in reverse order
+    END FOR
+
+    RETURN rev                               // Return the reversed result
+END FUNCTION
+
+// Main program
+BEGIN
+    text = "hello"                          // Sample input
+
+    reversed = reverse_string(text)         // Call the function
+
+    Write("Reversed string: ")             // Display label
+    Write(reversed)                        // Expected output: "olleh"
+END

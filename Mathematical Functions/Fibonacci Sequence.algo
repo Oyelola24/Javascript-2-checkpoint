@@ -1,0 +1,42 @@
+ALGORITHM FibonacciGenerator
+
+VAR
+    n, i : INTEGER
+    fibonacci : ARRAY[1..100] OF INTEGER
+
+// Function to generate Fibonacci sequence up to n terms
+FUNCTION generate_fibonacci(terms : INTEGER) : ARRAY[1..100] OF INTEGER
+VAR
+    seq : ARRAY[1..100] OF INTEGER
+    j : INTEGER
+BEGIN
+    // Set the first term
+    IF terms >= 1 THEN
+        seq[1] = 0
+    END IF
+
+    // Set the second term
+    IF terms >= 2 THEN
+        seq[2] = 1
+    END IF
+
+    // Generate the remaining terms
+    FOR j FROM 3 TO terms DO
+        seq[j] = seq[j - 1] + seq[j - 2]
+    END FOR
+
+    RETURN seq
+END FUNCTION
+
+BEGIN
+    // Number of terms to generate
+    n = 10
+
+    // Call the function
+    fibonacci = generate_fibonacci(n)
+
+    // Display the Fibonacci sequence
+    FOR i FROM 1 TO .lenght n DO
+        Write(fibonacci[i])
+    END FOR
+END

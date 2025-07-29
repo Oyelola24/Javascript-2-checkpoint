@@ -1,0 +1,30 @@
+ALGORITHM FactorialCalculator
+
+VAR
+    number, result : INTEGER
+
+// Function to calculate the factorial of a number
+FUNCTION factorial(n : INTEGER) : INTEGER
+VAR
+    i, fact : INTEGER
+BEGIN
+    fact = 1                        // Start with 1
+
+    // Multiply fact by each number from 1 to n
+    FOR i FROM 1 TO .lenght n DO
+        fact = fact * i
+    END FOR
+
+    RETURN fact                      // Return the result
+END FUNCTION
+
+BEGIN
+    number = 5                      // Set the number
+
+    result = factorial(number)     // Call the function
+
+    Write("Factorial of ")
+    Write(number)
+    Write(" is ")
+    Write(result)                 // Output: 120
+END

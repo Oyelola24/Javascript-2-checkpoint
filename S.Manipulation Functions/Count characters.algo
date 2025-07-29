@@ -1,0 +1,32 @@
+// Define the algorithm
+ALGORITHM CountCharacters
+
+// Declare variables
+VAR
+    text : STRING
+    count : INTEGER
+
+// Function to count characters in a string
+FUNCTION count_characters(word : STRING) : INTEGER
+VAR
+    i, total : INTEGER
+BEGIN
+    total = 0                       // Initialize counter
+
+    // Loop through each character in the string
+    FOR i FROM 0 TO .length(word) - 1 DO
+        total = total + 1           // Increase the count
+    END FOR
+
+    RETURN total                     // Return the final count
+END FUNCTION
+
+// Main program
+BEGIN
+    text = "Chelsea"                // Input string
+
+    count = count_characters(text) // Call the function
+
+    Write("Character count: ")    // Label
+    Write(count)                  // Output: 7
+END

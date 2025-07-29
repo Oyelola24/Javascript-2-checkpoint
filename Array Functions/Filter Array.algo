@@ -1,0 +1,45 @@
+ALGORITHM FilterArray
+
+VAR
+    input_array, filtered_array : ARRAY[1..100] OF INTEGER
+    size, i : INTEGER
+
+// Function to filter elements greater than or equal to 10
+FUNCTION filter_greater_equal_10(arr : ARRAY[1..100] OF INTEGER, n : INTEGER) : ARRAY[1..100] OF INTEGER
+VAR
+    i, j : INTEGER
+    result : ARRAY[1..100] OF INTEGER
+BEGIN
+    j = 1
+
+    FOR i FROM 1 TO .lenght n DO
+        IF arr[i] >= 10 THEN
+            result[j] = arr[i]
+            j = j + 1
+        END IF
+    END FOR
+
+    RETURN result
+END FUNCTION
+
+BEGIN
+    // Initialize the input array and its size
+    size = 7
+    input_array[1] = 5
+    input_array[2] = 12
+    input_array[3] = 3
+    input_array[4] = 25
+    input_array[5] = 8
+    input_array[6] = 14
+    input_array[7] = 1
+
+    // Call the filter function
+    filtered_array = filter_greater_equal_10(input_array, size)
+
+    // Display the filtered result
+    FOR i FROM 1 TO .lenght DO
+        IF filtered_array[i] <> 0 THEN
+            Write(filtered_array[i])
+        END IF
+    END FOR
+END

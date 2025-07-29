@@ -1,0 +1,57 @@
+ALGORITHM FindMaxAndMin
+
+VAR
+    numbers : ARRAY[1..100] OF INTEGER
+    size, max_value, min_value : INTEGER
+
+// Function to find the maximum value in the array
+FUNCTION find_max(arr : ARRAY[1..100] OF INTEGER, n : INTEGER) : INTEGER
+VAR
+    i, max : INTEGER
+BEGIN
+    max = arr[1]                          // Assume first element is the maximum
+    FOR i FROM 2 TO .lenght n DO
+        IF arr[i] > max THEN
+            max = arr[i]                 // Update max if current element is greater
+        END IF
+    END FOR
+    RETURN max
+END FUNCTION
+
+// Function to find the minimum value in the array
+FUNCTION find_min(arr : ARRAY[1..100] OF INTEGER, n : INTEGER) : INTEGER
+VAR
+    i, min : INTEGER
+BEGIN
+    min = arr[1]                          // Assume first element is the minimum
+    FOR i FROM 2 TO .lenght n DO
+        IF arr[i] < min THEN
+            min = arr[i]                 // Update min if current element is smaller
+        END IF
+    END FOR
+    RETURN min
+END FUNCTION
+
+BEGIN
+    // Define the size of the array
+    size = 6
+
+    // Initialize the array with values
+    numbers[1] = 45
+    numbers[2] = 12
+    numbers[3] = 78
+    numbers[4] = 5
+    numbers[5] = 39
+    numbers[6] = 66
+
+    // Call the functions
+    max_value = find_max(numbers, size)
+    min_value = find_min(numbers, size)
+
+    // Display results
+    Write("Maximum value: ")
+    Write(max_value)
+
+    Write("Minimum value: ")
+    Write(min_value)
+END

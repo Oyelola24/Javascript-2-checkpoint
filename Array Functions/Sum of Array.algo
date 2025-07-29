@@ -1,0 +1,42 @@
+// Define the algorithm
+ALGORITHM SumArray
+
+// Declare global variables
+VAR
+    numbers : ARRAY[1..100] OF INTEGER
+    total, size : INTEGER
+
+// Function to calculate the sum of elements in an array
+FUNCTION sum_array(arr : ARRAY[1..100] OF INTEGER, n : INTEGER) : INTEGER
+VAR
+    i, sum : INTEGER
+BEGIN
+    sum = 0                       // Initialize sum to 0
+
+    // Loop through the array and add each element
+    FOR i FROM 1 TO .lenght n DO
+        sum = sum + arr[i]
+    END FOR
+
+    RETURN sum                    // Return the final sum
+END FUNCTION
+
+// Main program block
+BEGIN
+    // Initialize the size of the array
+    size = 5
+
+    // Assign values to the array
+    numbers[1] = 10
+    numbers[2] = 20
+    numbers[3] = 30
+    numbers[4] = 40
+    numbers[5] = 50
+
+    // Call the function to calculate the sum
+    total = sum_array(numbers, size)
+
+    // Display the result
+    Write("The total sum is: ")
+    Write(total)              // Expected output: 150
+END

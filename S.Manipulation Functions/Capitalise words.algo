@@ -1,0 +1,42 @@
+// Define the algorithm
+ALGORITHM CapitalizeWords
+
+// Declare global variables
+VAR
+    sentence, result : STRING
+
+// Function to capitalize the first letter of each word
+FUNCTION capitalize_words(text : STRING) : STRING
+VAR
+    i : INTEGER
+    capitalized : STRING
+    new_word : BOOLEAN
+BEGIN
+    capitalized = ""              // Start with an empty string
+    new_word = TRUE               // First character starts a new word
+
+    // Loop through each character in the string
+    FOR i FROM 0 TO .length(text) - 1 DO
+        IF text[i] = " " THEN
+            capitalized = capitalized + text[i]     // Add space to result
+            new_word = TRUE                         // Next character begins a new word
+        ELSE
+            IF new_word = TRUE THEN
+                capitalized = capitalized + to_upper(text[i])  // Capitalize first letter
+                new_word = FALSE
+            ELSE
+                capitalized = capitalized + to_lower(text[i])  // Lowercase rest
+            END IF
+        END IF
+    END FOR
+
+    RETURN capitalized
+END FUNCTION
+
+// Main program
+BEGIN
+    sentence = "hello world from algo"
+    result = capitalize_words(sentence)
+    Write("Capitalized sentence: ")
+    Write(result)   // Expected: "HELLO WORLD FROM ALGO"
+END
